@@ -1,0 +1,13 @@
+.skin-blue .main-header .navbar {
+    background-color: #232F3E;
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+    color: #F39C12 !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    width: 3rem !important;
+    height: 3rem !important;
+    font-size: 1.5rem !important;
+}
