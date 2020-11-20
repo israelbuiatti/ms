@@ -1,4 +1,5 @@
 import React from 'react'
+import Breadcrumb from '../components/breadcrumb';
 
 export default function Cliente() {
 
@@ -11,16 +12,18 @@ export default function Cliente() {
         {pedido:5, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 5", valor: "2.580,00"},
     ];
 
+    const breadcrumb = [
+        {label: 'Home', url:'/'},
+        {label: 'Cliente', active:true},
+    ];
+
     
 
     return (
         <div className="content-wrapper">
             <section className="content-header">
                 <h1> Cliente </h1>
-                <ol className="breadcrumb">
-                <li><a href="#"><i className="fa fa-dashboard" /> Home</a></li>
-                <li className="active">Cliente</li>
-                </ol>
+                <Breadcrumb itens={breadcrumb}/>
             </section>
             <section className="content">
 
@@ -28,7 +31,7 @@ export default function Cliente() {
                     <div className="col-md-12">
                         <div className="box">
                             <div className="box-body">
-                                <a class="btn btn-app"> <i class="fa fa-edit"></i> Cadastrar </a>
+                                <a className="btn btn-app"> <i className="fa fa-edit"></i> Cadastrar </a>
                             </div>
                         </div>
                     </div>

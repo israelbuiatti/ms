@@ -1,7 +1,11 @@
 import React from 'react';
-import { Paginator } from 'primereact/paginator';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
+import MenuPage from '../components/menuPage';
+import Row from '../components/row';
+import Card from '../components/card';
+import Table from '../components/table';
+import Content from '../components/content';
+
+
 
 export default function Pedido() {
 
@@ -14,73 +18,49 @@ export default function Pedido() {
         {pedido:5, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 5", valor: "2.580,00"},
     ];
 
-    
+    const breadcrumb = [
+        {label: 'Home', url:'/'},
+        {label: 'Pedido', active:true},
+    ];
+
+    const menu = [
+        {label: 'Cadastrar', url:'/pedido/cadastrar'}
+    ];
 
     return (
         <div className="content-wrapper">
-            <section className="content-header">
-                <h1> Pedido </h1>
-                <ol className="breadcrumb">
-                <li><a href="#"><i className="fa fa-dashboard" /> Home</a></li>
-                <li className="active">Pedido</li>
-                </ol>
-            </section>
-            <section className="content">
 
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="box">
-                            <div className="box-body">
-                                <a class="btn btn-app"> <i class="fa fa-edit"></i> Cadastrar </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <Content breadcrumb={breadcrumb} title="Pedido">
 
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="box box-info">
-                            <div className="box-header with-border">
-                                <h3 className="box-title">Pedidos</h3>
-                            </div>
-                            <div className="box-body">
-                                <div className="table-responsive">
-                                    <table className="table no-margin table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>Pedido</th>
-                                            <th>Data</th>
-                                            <th>Cliente</th>
-                                            <th>Valor</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                            {
-                                                lista.map(pedido => (
-                                                    <tr>
-                                                        <td><a href="pages/examples/invoice.html">#{pedido.pedido}</a></td>
-                                                        <td>{pedido.data}</td>
-                                                        <td><span className="label label-success">Shipped</span></td>
-                                                        <td>
-                                                        <td>{pedido.valor}</td>
-                                                        </td>
-                                                    </tr>
-                                                ))
-                                            }
-                                        </tbody>
-                                    </table>
+                <MenuPage itens={menu}></MenuPage>
 
-                                </div>
-                            </div>
-                            <div className="box-footer clearfix">
-                                <Paginator rowsPerPageOptions={[10,20,30]} first={2} rows={10} totalRecords={120} onPageChange={(e) => this.setState({first: e.first})}></Paginator>
-                            </div>
+                <Row>
+                    <Card title="Pedidos" col="12">
+                        <Table>
+                            <tr>
+                                <th>Pedido</th>
+                                <th>Data</th>
+                                <th>Cliente</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                            </tr>
+                            {
+                                lista.map((pedido,i) => (
+                                    <tr key={i}>
+                                        <td><a href="pages/examples/invoice.html">#{pedido.pedido}</a></td>
+                                        <td>{pedido.data}</td>
+                                        <td><span className="label label-success">Shipped</span></td>
+                                        <td>{pedido.valor}</td>
+                                        <td></td>
+                                    </tr>
+                                ))
+                            }
+                        </Table>
+                    </Card>
+                </Row>
+                
+            </Content>
 
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
 
 
