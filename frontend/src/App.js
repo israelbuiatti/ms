@@ -15,7 +15,9 @@ export default function App() {
 	return (
 		<div>
 			<Header></Header>
-			<Rotas></Rotas>
+			<div className="container">   
+				<Rotas></Rotas>
+			</div>
 			<Footer></Footer>
 		</div>
 	)

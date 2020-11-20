@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Dashboard() {
     return (
-        <div className="content-wrapper">
+        <>
             {/* Content Header (Page header) */}
             <section className="content-header">
                 <h1>
@@ -790,7 +790,7 @@ export default function Dashboard() {
                 {/* /.row */}
             </section>
             {/* /.content */}
-        </div>
+        </>
 
 
     )

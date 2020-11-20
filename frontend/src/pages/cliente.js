@@ -14,7 +14,7 @@ export default function Cliente() {
     
 
     return (
-        <div className="content-wrapper">
+        <>
             <section className="content-header">
                 <h1> Cliente </h1>
                 <ol className="breadcrumb">
@@ -83,7 +83,7 @@ export default function Cliente() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
 
 
     )

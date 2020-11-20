@@ -17,7 +17,7 @@ export default function Pedido() {
     
 
     return (
-        <div className="content-wrapper">
+        <>
             <section className="content-header">
                 <h1> Pedido </h1>
                 <ol className="breadcrumb">
@@ -81,7 +81,7 @@ export default function Pedido() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
 
 
     )
