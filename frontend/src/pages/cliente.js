@@ -13,7 +13,6 @@ export default function Cliente() {
     ];
 
     const breadcrumb = [
-        {label: 'Home', url:'/'},
         {label: 'Cliente', active:true},
     ];
 

@@ -6,7 +6,7 @@ export default function Content(props) {
         <>
             <section className="content-header">
                 <h1> {props.title} </h1>
-                <Breadcrumb itens={props.breadcrumb}/>
+            { props.breadcrumb && <Breadcrumb itens={props.breadcrumb}/> }
             </section>
 
             <section className="content">

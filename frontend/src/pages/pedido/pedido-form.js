@@ -1,15 +1,17 @@
 import React from 'react';
-import MenuPage from '../components/menuPage';
-import Row from '../components/row';
-import Card from '../components/card';
-import Table from '../components/table';
-import Content from '../components/content';
+import MenuPage from '../../components/menuPage';
+import Row from '../../components/row';
+import Card from '../../components/card';
+import Table from '../../components/table';
+import Content from '../../components/content';
+import { useParams } from 'react-router-dom';
 
 
+export default function PedidoForm() {
 
-export default function Pedido() {
-
-
+    const params = useParams();
+    console.log(params);
+    
     const lista = [
         {pedido:1, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 1", valor: "2.580,00"},
         {pedido:2, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 2", valor: "2.580,00"},
@@ -19,8 +21,8 @@ export default function Pedido() {
     ];
 
     const breadcrumb = [
-        {label: 'Home', url:'/'},
-        {label: 'Pedido', active:true},
+        {label: 'Pedido', url:'/pedido'},
+        {label: 'Cadastrar Pedido', active:true},
     ];
 
     const menu = [
@@ -30,9 +32,7 @@ export default function Pedido() {
     return (
         <div className="content-wrapper">
 
-            <Content breadcrumb={breadcrumb} title="Pedido">
-
-                <MenuPage itens={menu}></MenuPage>
+            <Content breadcrumb={breadcrumb} title="Cadastrar Pedido">
 
                 <Row>
                     <Card title="Pedidos" col="12">

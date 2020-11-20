@@ -13,7 +13,7 @@ import 'primeicons/primeicons.css';
 
 export default function App() {
 	return (
-		<div>
+		<div className="wrapper">
 			<Header></Header>
 			<Rotas></Rotas>
 			<Footer></Footer>
