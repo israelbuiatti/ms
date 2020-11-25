@@ -1,22 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuPage from '../../components/menuPage';
 import Row from '../../components/row';
 import Card from '../../components/card';
 import Table from '../../components/table';
 import Content from '../../components/content';
-
+import api from '../../services/api';
+import Button from '../../components/Button';
+import ExcluirConfirm from '../../components/ExcluirConfirm';
 
 
 export default function Pedido() {
-
-
-    const lista = [
-        {pedido:1, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 1", valor: "2.580,00"},
-        {pedido:2, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 2", valor: "2.580,00"},
-        {pedido:3, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 3", valor: "2.580,00"},
-        {pedido:4, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 4", valor: "2.580,00"},
-        {pedido:5, "data": "10/10/2020", cliente: "Joao da Silva Oliveira 5", valor: "2.580,00"},
-    ];
 
     const breadcrumb = [
         {label: 'Pedido', active:true},
@@ -25,6 +18,35 @@ export default function Pedido() {
     const menu = [
         {label: 'Cadastrar', url:'/pedido/cadastrar'}
     ];
+
+    const[show, setShow] = useState(false);
+    const [lista, setLista] = useState([]);
+
+    useEffect(() => {    
+        getLista();
+    },[]);
+
+    const getLista = async () => {
+        const response = await api.get('pedidos');
+        setLista(response.data);
+    }
+
+    const editar = (item) => {
+        console.log(item);
+        this.onClick('displayBasic');
+    }
+
+    const excluir = (item) => {
+        console.log(item);
+        alert('excluir');
+    }
+
+    const onConfirm = (item) => {
+        console.log(item);
+        alert('excluido!');
+    }
+
+
 
     return (
         <div className="content-wrapper">
@@ -35,13 +57,14 @@ export default function Pedido() {
 
                 <Row>
                     <Card title="Pedidos" col="12">
+
                         <Table>
                             <tr>
                                 <th>Pedido</th>
                                 <th>Data</th>
-                                <th>Cliente</th>
-                                <th>Valor</th>
                                 <th>Status</th>
+                                <th>Valor</th>
+                                <th>Ação</th>
                             </tr>
                             {
                                 lista.map((pedido,i) => (
@@ -50,7 +73,10 @@ export default function Pedido() {
                                         <td>{pedido.data}</td>
                                         <td><span className="label label-success">Shipped</span></td>
                                         <td>{pedido.valor}</td>
-                                        <td></td>
+                                        <td>
+                                            <Button icon="pencil" tooltip="Editar" onClick={() => editar(pedido)}></Button>
+                                            <ExcluirConfirm onConfirm={() => onConfirm(pedido)}/>
+                                        </td>
                                     </tr>
                                 ))
                             }

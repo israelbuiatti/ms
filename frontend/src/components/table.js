@@ -10,7 +10,7 @@ export default function Table(props) {
                 <thead>
 
                     {React.Children.map(children, (child, i) => {
-                        if (i > 1) return
+                        if (i > 0) return
                         return child
                     })}
 

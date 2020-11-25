@@ -15,7 +15,6 @@ export default function Rotas(props){
                 <Route exact path="/pedido" component={Pedido}/>
                 <Route exact path="/pedido/cadastrar" component={PedidoForm}/>
                 <Route path="/cliente" component={Cliente} />
-
             </Switch>
         </Router>
     )

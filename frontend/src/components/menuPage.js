@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function MenuPage(props) {
     return (
@@ -8,7 +9,11 @@ export default function MenuPage(props) {
                     <div className="box-body">
                         {
                             props.itens.map((item,i) => (
-                                <a key={i} className="btn btn-app" href={item.url}> <i className="fa fa-edit"></i> {item.label} </a>
+
+                                <Link to={item.url}>
+                                    <a key={i} className="btn btn-app" href="#"> <i className="fa fa-edit"></i> {item.label} </a>
+                                </Link>
+                                
                             ))
                         }
                     </div>
