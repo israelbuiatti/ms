@@ -1,4 +1,5 @@
 import ClienteRepository from '../repository/ClienteRepository'
+import AppError from '../exception/AppError';
 
 class ClienteService {
 
@@ -15,8 +16,14 @@ class ClienteService {
         return results;
     }
 
-    salvar() {
-        this.repository.salvar();
+    async salvar(cliente) {
+
+        if (!cliente.cnpj) {
+            throw new AppError("CNPJ deve ser preenchido!");
+        }
+
+        const result = await this.repository.salvar(cliente);
+        return result;
     }
 
     alterar() {

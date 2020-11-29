@@ -1,5 +1,4 @@
 import knex from '../../database';
-import User from '../models/Cliente';
 import ClienteService from '../services/ClienteService';
 
 export default class ClienteController {
@@ -40,9 +39,9 @@ export default class ClienteController {
 			nome_razao
 		}
 
-		await knex('cliente').withSchema('ms').insert(cliente);
+		const result = await this.clienteService.salvar(cliente);
 
-		return res.json(null);
+		return res.json(result);
 
 	}
 
