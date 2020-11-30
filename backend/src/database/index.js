@@ -14,4 +14,8 @@ const knex = require('knex')({
 	}
 });
 
+knex.table = (table) => {
+	return knex.withSchema("ms").table(table);
+};
+
 module.exports = knex

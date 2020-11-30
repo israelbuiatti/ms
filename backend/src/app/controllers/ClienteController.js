@@ -1,4 +1,4 @@
-import knex from '../../database';
+import Cliente from '../models/Cliente';
 import ClienteService from '../services/ClienteService';
 
 export default class ClienteController {
@@ -8,41 +8,40 @@ export default class ClienteController {
 	}
 
 
-
 	async list(req, res) {
-
-		const results = await this.clienteService.listar();
-
+		const results = await this.clienteService.findAll();
 		return res.json(results);
-
 	}
 
 	async get(req, res) {
-
 		const { id } = req.params;
-
-		console.log(id);
-
-		const results = await knex('cliente').withSchema('ms').where('id', id).first();
-
-		console.log(results);
-
-		return res.json(results);
-
+		const result = await this.clienteService.findById(id);
+		return res.json(result);
 	}
 
 	async create(req, res) {
 
-		const { nome_razao } = req.body;
+		const cliente = Cliente.create(req.body);
 
-		const cliente = {
-			nome_razao
-		}
+		const result = await this.clienteService.insert(cliente);
 
-		const result = await this.clienteService.salvar(cliente);
+		return res.status(201).json(result);
 
-		return res.json(result);
+	}
 
+	async update(req, res) {
+		const { id } = req.params;
+		const cliente = Cliente.create(req.body);
+
+		await this.clienteService.update({ id, ...cliente });
+
+		return res.status(200).json(cliente);
+	}
+
+	async delete(req, res) {
+		const { id } = req.params;
+		await this.clienteService.delete(id);
+		return res.status(204).json();
 	}
 
 

@@ -1,34 +1,39 @@
-import knex from '../../database';
+import BaseRepository from './BaseRepository'
 
-class ClienteRepository {
+class ClienteRepository extends BaseRepository {
 
-    constructor() {
-        this.db = knex('cliente').withSchema('ms');
+    table = 'cliente';
+
+    async findById(id) {
+        const result = await this.db().where('id', id).first();
+        return result;
     }
 
-    findById() {
-
-    }
-
-    async listar() {
-        const results = await this.db
-        //.select('id', 'nome_razao')
+    async findAll() {
+        const results = await this.db()
+        // .select('id', 'nome_razao')
         return results;
     }
 
-    async salvar(cliente) {
-        const result = await this.db
+    async insert(cliente) {
+        const result = await this.db()
             .returning('*')
             .insert(cliente);
         return result;
     }
 
-    alterar() {
+    async update(cliente) {
 
+        const { id } = cliente;
+
+        const result = await this.db()
+            .where({ id })
+            .update(cliente);
+        return result;
     }
 
-    deletar() {
-
+    async delete(id) {
+        await this.db().where('id', id).del();
     }
 
 
