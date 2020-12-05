@@ -8,6 +8,8 @@ import AppError from './app/exception/AppError';
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 if (process.env.NODE_ENV !== 'production') {
 	import 'dotenv/config';
 }

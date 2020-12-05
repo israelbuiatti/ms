@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== 'production') {
 	import 'dotenv/config';
 }
 
+
 const knex = require('knex')({
 	client: 'pg',
 	version: '13',
@@ -11,11 +12,8 @@ const knex = require('knex')({
 		password: process.env.DB_PASSWORD,
 		database: process.env.DB_DATABASE,
 		port: process.env.DB_PORT,
+		ssl: process.env.DB_SSL == "true"
 	}
 });
-
-knex.table = (table) => {
-	return knex.withSchema("ms").table(table);
-};
 
 module.exports = knex
