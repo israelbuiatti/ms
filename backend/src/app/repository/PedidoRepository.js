@@ -1,31 +1,31 @@
 import BaseRepository from './BaseRepository'
 
-class ClienteRepository extends BaseRepository {
+class PedidoRepository extends BaseRepository {
 
-    table = 'cliente';
+    table = 'pedido';
 
     async findAll() {
         const results = await this.db()
-        // .select('id', 'nome_razao')
+        // .select('id', 'descricao')
         return results;
     }
 
-    async insert(cliente) {
+    async insert(pedido) {
         const result = await this.db()
             .returning('*')
-            .insert(cliente);
+            .insert(pedido);
         return result;
     }
 
-    async update(cliente) {
+    async update(pedido) {
 
-        const { id } = cliente;
+        const { id } = pedido;
 
         await this.findById(id);
 
         const result = await this.db()
             .where({ id })
-            .update(cliente);
+            .update(pedido);
         return result;
     }
 
@@ -39,4 +39,4 @@ class ClienteRepository extends BaseRepository {
 }
 
 
-export default ClienteRepository;
+export default PedidoRepository;
