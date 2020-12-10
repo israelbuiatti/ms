@@ -3,6 +3,8 @@ import 'express-async-errors'
 import routes from './routes';
 import cors from 'cors'
 import AppError from './app/exception/AppError';
+import rateLimiter from './app/middlewares/rateLimiter';
+
 
 
 const swaggerUi = require('swagger-ui-express')
@@ -19,11 +21,13 @@ console.log("=== AMBIENTE:", process.env.NODE_ENV);
 console.log("==========================");
 
 const app = express();
+app.use(rateLimiter);
 
 app.use(cors());
 
 app.use(express.json());
 app.use(routes);
+
 
 app.use((err, request, response, next) => {
 
