@@ -1,8 +1,11 @@
 import { Router } from 'express';
 import VendedorController from '../app/controllers/VendedorController';
+import ensureAuthenticated from '../app/middlewares/ensureAuthenticated';
 
 const routes = Router();
 const vendedorController = new VendedorController();
+
+routes.use(ensureAuthenticated);
 
 routes.get('/', (req, res) => vendedorController.list(req, res)); // POSSUI ESSAS DUAS OPÇÕES PRA USAR O CONTEXTO THIS
 routes.get('/:id', vendedorController.get.bind(vendedorController));

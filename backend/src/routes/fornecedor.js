@@ -1,8 +1,11 @@
 import { Router } from 'express';
 import FornecedorController from '../app/controllers/FornecedorController';
+import ensureAuthenticated from '../app/middlewares/ensureAuthenticated';
 
 const routes = Router();
 const fornecedorController = new FornecedorController();
+
+routes.use(ensureAuthenticated);
 
 routes.get('/', (req, res) => fornecedorController.list(req, res)); // POSSUI ESSAS DUAS OPÇÕES PRA USAR O CONTEXTO THIS
 routes.get('/:id', fornecedorController.get.bind(fornecedorController));

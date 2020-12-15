@@ -5,6 +5,8 @@ import AppError from '../exception/AppError';
 const redisClient = redis.createClient({
     host: process.env.REDIS_HOST,
     port: Number(process.env.REDIS_PORT),
+    user: process.env.REDIS_USER,
+    no_ready_check: true,
     password: process.env.REDIS_PASS || undefined,
 });
 
@@ -18,9 +20,6 @@ const limiter = new RateLimiterRedis({
 export default async function rateLimiter(request, response, next) {
     try {
         const teste = await limiter.consume(request.ip);
-        console.log(teste);
-        console.log('ip', request.ip)
-
         return next();
     } catch (err) {
         throw new AppError('Too many requests', 429);

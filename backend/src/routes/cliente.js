@@ -1,8 +1,11 @@
 import { Router } from 'express';
 import ClienteController from '../app/controllers/ClienteController';
+import ensureAuthenticated from '../app/middlewares/ensureAuthenticated';
 
 const routes = Router();
 const clienteController = new ClienteController();
+
+routes.use(ensureAuthenticated);
 
 routes.get('/', (req, res) => clienteController.list(req, res)); // POSSUI ESSAS DUAS OPÇÕES PRA USAR O CONTEXTO THIS
 routes.get('/:id', clienteController.get.bind(clienteController));
