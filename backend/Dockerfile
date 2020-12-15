@@ -9,6 +9,6 @@ COPY . .
 
 EXPOSE 3333
 
-#CMD ["NODE_ENV=production && npm start"]
+CMD ["npm", "start"]
 
 

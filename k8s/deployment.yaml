@@ -1,48 +1,59 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: api-deployment
+  name: api-deployment
 spec:
-    selector:
-        matchLabels:
-            app: api
-    replicas: 2
-    template:
-        metadata:
-            labels:
-                app: api
-        spec:
-            containers:
-                - name: api
-                  image: israelbuiatti/ms-backend:latest
-                  command: ["npm"]
-                  args: ["start"]
-                  ports:
-                      - containerPort: 80
-                  imagePullPolicy: Always
-                  #   resources:
-                  #       limits:
-                  #           memory: 512Mi
-                  #           cpu: "1"
-                  #       requests:
-                  #           memory: 256Mi
-                  #           cpu: "0.2"
-                  env:
-                      - name: NODE_ENV
-                        value: "production"
-                      - name: DB_HOST
-                        value: "db-postgresql-nyc1-10717-do-user-2062861-0.b.db.ondigitalocean.com"
-                      - name: DB_USER
-                        value: "doadmin"
-                      - name: DB_PASSWORD
-                        value: "f1kpk0fipsjk27h4"
-                      - name: DB_DATABASE
-                        value: "defaultdb"
-                      - name: DB_PORT
-                        value: "25060"
-                      - name: DB_SSL
-                        value: "true"
-                  livenessProbe:
-                      httpGet:
-                          path: /
-                          port: 3333
+  selector:
+    matchLabels:
+      app: api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: israelbuiatti/ms-backend
+          command: ["npm"]
+          args: ["start"]
+          ports:
+            - containerPort: 80
+          imagePullPolicy:
+            Always
+            # resources:
+            #     limits:
+            #         memory: 512Mi
+            #         cpu: "1"
+            #     requests:
+            #         memory: 256Mi
+            #         cpu: "0.2"
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: DB_HOST
+              value: "ec2-3-95-87-221.compute-1.amazonaws.com"
+            - name: DB_USER
+              value: "letijqgofvwczj"
+            - name: DB_PASSWORD
+              value: "5d4fce0fab728c63f1828aed4fb66266424806a72e968e2e730a95d8e9a07172"
+            - name: DB_DATABASE
+              value: "d4baq2lup3gb3t"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_SSL
+              value: "true"
+            - name: REDIS_HOST
+              value: "ec2-34-226-131-228.compute-1.amazonaws.com"
+            - name: REDIS_PORT
+              value: "7529"
+            - name: REDIS_USER
+              value: "h"
+            - name: REDIS_PASS
+              value: "pe012cdbe7b5a027ef463a54155c8ffb2e950f9ba296601237c99750750d2df7c"
+            - name: APP_SECRET
+              value: "abcabc"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3333
