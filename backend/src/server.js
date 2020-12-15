@@ -4,7 +4,8 @@ import routes from './routes';
 import cors from 'cors'
 import AppError from './app/exception/AppError';
 import rateLimiter from './app/middlewares/rateLimiter';
-
+import { sign } from 'jsonwebtoken'
+import authConfig from "./app/config/auth";
 
 
 const swaggerUi = require('swagger-ui-express')
@@ -16,8 +17,16 @@ if (process.env.NODE_ENV !== 'production') {
 	import 'dotenv/config';
 }
 
+
+const tokenx = sign({}, authConfig.jwt.secret, {
+	subject: "111",
+	expiresIn: authConfig.jwt.expiresIn
+});
+
+
 console.log("==========================");
 console.log("=== AMBIENTE:", process.env.NODE_ENV);
+console.log("=== TOKEN:", tokenx);
 console.log("==========================");
 
 const app = express();
@@ -49,7 +58,8 @@ app.use((err, request, response, next) => {
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
+const PORT = process.env.PORT || 5000
 
-app.listen(3333, () => {
+app.listen(PORT, () => {
 	console.log('Server running on localhost:3333');
 });
