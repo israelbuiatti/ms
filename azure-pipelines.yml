@@ -23,8 +23,5 @@ steps:
     containerRegistry: 'Docker Hub'
     repository: 'israelbuiatti'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: './backend/Dockerfile'
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: '6.x'
