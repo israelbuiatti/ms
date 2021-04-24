@@ -24,6 +24,5 @@ steps:
     repository: 'israelbuiatti/ms-backend'
     command: 'buildAndPush'
     Dockerfile: './backend/Dockerfile'
-    tags: |
-      #$(Build.BuildId)
+    tags:
       latest
