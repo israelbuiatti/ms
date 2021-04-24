@@ -21,7 +21,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
-    repository: 'israelbuiatti'
+    repository: 'israelbuiatti/ms-backend'
     command: 'buildAndPush'
     Dockerfile: './backend/Dockerfile'
 
