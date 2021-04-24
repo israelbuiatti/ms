@@ -18,6 +18,13 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   
+  
+- task: PushToHeroku@0
+  inputs:
+    ApiKey: '51ca602f-d235-4d40-b6c6-daf394e171fc'
+    AppName: 'buiatti-ms-backend'
+    PushRoot: 'backend'
+      
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
@@ -26,3 +33,4 @@ steps:
     Dockerfile: './backend/Dockerfile'
     tags:
       latest
+
