@@ -17,3 +17,14 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+  
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker Hub'
+    repository: 'israelbuiatti'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '6.x'
