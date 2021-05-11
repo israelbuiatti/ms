@@ -49,7 +49,7 @@ jobs:
           # Email that you use with heroku
           heroku_email: israelbuiatti@gmail.com
           # The appname to use for deploying/updating
-          heroku_app_name: buiatti-ms-backend
+          heroku_app_name: buiatti-ms-backend2
           usedocker: true
           appdir: backend
           
