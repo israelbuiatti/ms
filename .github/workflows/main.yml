@@ -47,5 +47,5 @@ jobs:
           # Your Heroku App Name
           app_name: buiatti-ms-backend
           # Dokerfile path
-          dockerfile_path: backend/Dockerfile
+          dockerfile_path: backend
        
