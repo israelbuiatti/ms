@@ -35,15 +35,17 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Deploy to Heroku
+      - name: Heroku Docker Container Deploy
         # You may pin to the exact commit or the version.
-        # uses: AkhileshNS/heroku-deploy@79ef2ae4ff9b897010907016b268fd0f88561820
-        uses: AkhileshNS/heroku-deploy@v3.12.12
+        # uses: lucassarcanjo/heroku-deploy@1db4c62f6032efe526c12734f18d36669218e5af
+        uses: lucassarcanjo/heroku-deploy@2.1.17
         with:
-          # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: e9cc2afe-5424-46e3-bae6-c7a8d1efe240
-          # Email that you use with heroku
-          heroku_email: israelbuiatti@gmail.com
-          # The appname to use for deploying/updating
-          heroku_app_name: buiatti-ms-backend
-          
+          # Email Linked to your Heroku Account
+          email: israelbuiatti@gmail.com
+          # Your Heroku API Key
+          api_key: e9cc2afe-5424-46e3-bae6-c7a8d1efe240
+          # Your Heroku App Name
+          app_name: buiatti-ms-backend
+          # Dokerfile path
+          dockerfile_path: .
+       
