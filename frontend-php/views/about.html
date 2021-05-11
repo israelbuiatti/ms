@@ -1,0 +1,40 @@
+<div class="container theme-showcase" role="main">
+
+<div class="well">
+	<div class="row" style="text-align:center">
+		<b>USUÁRIOS</b>
+	</div>
+</div>
+
+<hr>
+<button type="button" class="btn btn-primary">Imprimir</button>
+<button type="button" class="btn btn-primary">Exportar</button>
+<hr>
+
+<div ng-show="load" style="margin-bottom:20px; text-align:center"> <img src="images/ajax-loader.gif"></div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+	<thead>
+	  <tr>
+		<th width=100></th>
+		<th>Nome</th>
+		<th>Email</th>
+		<th>Telefone</th>
+		<th></th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr ng-repeat="item in list">
+		<td><img width="100" src="{{item.image}}"></td>
+		<td>{{item.nome}}</td>
+		<td>{{item.email}}</td>
+		<td>{{item.telefone}}</td>
+		<td> <button type="button" class="btn btn-xs btn-danger">remover</button> </td>
+	  </tr>
+	</tbody>
+  </table>
+</div>
+
+	
+</div> <!-- /container -->
