@@ -35,6 +35,7 @@ jobs:
           echo bc98c37f-5905-43a0-8069-4de5cb82c45a | docker login --username=israelbuiatti@gmail.com registry.heroku.com --password-stdin
           docker build --tag registry.heroku.com/buiatti-ms-backend/web ./backend
           docker push registry.heroku.com/buiatti-ms-backend/web
+          heroku container:release web --app buiatti-ms-backend --recursive
           
           
           
