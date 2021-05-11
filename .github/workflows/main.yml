@@ -45,11 +45,11 @@ jobs:
         uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
           # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: bc98c37f-5905-43a0-8069-4de5cb82c45a
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           # Email that you use with heroku
           heroku_email: israelbuiatti@gmail.com
           # The appname to use for deploying/updating
-          heroku_app_name: buiatti-ms-backend2
+          heroku_app_name: buiatti-ms-backend
           usedocker: true
           appdir: backend
           
