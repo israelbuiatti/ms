@@ -3,8 +3,8 @@ version: "3"
 services:
   app:
     container_name: backend_ms
-    #build: .
-    image: israelbuiatti/ms-backend
+    build: .
+    #image: israelbuiatti/ms-backend
     ports:
       - "3333:3333"
     command: npm start
@@ -17,8 +17,8 @@ services:
       - DB_DATABASE=d4baq2lup3gb3t
       - DB_PORT=5432
       - DB_SSL=true
-      - REDIS_HOST=ec2-3-210-163-2.compute-1.amazonaws.com
-      - REDIS_PORT=10579
+      - REDIS_HOST=ec2-52-5-186-198.compute-1.amazonaws.com
+      - REDIS_PORT=18849
       - REDIS_USER=h
       - REDIS_PASS=pe012cdbe7b5a027ef463a54155c8ffb2e950f9ba296601237c99750750d2df7c
       - APP_SECRET=abcabc
