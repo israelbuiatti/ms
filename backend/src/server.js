@@ -1,4 +1,5 @@
 console.log('Testando...');
+console.log(1, process.env.NODE_ENV);
 /*
 import express from 'express';
 import 'express-async-errors'
