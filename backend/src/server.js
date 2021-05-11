@@ -1,6 +1,6 @@
-console.log('Testando...');
-console.log(1, process.env.NODE_ENV);
-/*
+//console.log('Testando...');
+//console.log(1, process.env.NODE_ENV);
+
 import express from 'express';
 import 'express-async-errors'
 import routes from './routes';
@@ -66,4 +66,3 @@ const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
 	console.log('Server running on localhost:3333');
 });
-*/
