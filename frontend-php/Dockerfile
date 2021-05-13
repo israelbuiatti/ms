@@ -29,4 +29,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #RUN sed -i "s/VirtualHost \*:80/VirtualHost \*:${PORT:-80}/g" /etc/apache2/sites-available/000-default.conf
 
 RUN chown -R www-data:www-data /var/www/html && a2enmod rewrite
-    
+
+EXPOSE 80    
