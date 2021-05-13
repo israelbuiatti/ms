@@ -24,5 +24,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf
+sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/apache2.conf
+sed -i "s/VirtualHost \*:80/VirtualHost \*:${PORT:-80}/g" /etc/apache2/sites-available/000-default.conf
+
 RUN chown -R www-data:www-data /var/www/html \
     && a2enmod rewrite
