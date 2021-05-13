@@ -30,4 +30,4 @@ RUN sed -i "s/VirtualHost \*:80/VirtualHost \*:${PORT:-80}/g" /etc/apache2/sites
 
 RUN chown -R www-data:www-data /var/www/html && a2enmod rewrite
 
-EXPOSE 80    
+#EXPOSE 80    
