@@ -1,0 +1,10 @@
+version: '3.7'
+services: 
+  frontend-php:
+    build: .
+    container_name: 'frontend-php'
+    image: 'frontend-php'
+    ports:
+      - 88:80
+    volumes:
+      - ./www:/var/www/html
