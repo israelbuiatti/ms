@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", function ($scope, $http) {
+angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function ($scope, $http) {
 
+	$scope.teste1 = "OKKKK";
 
 	$scope.novo = function() {
 		$scope.pedido = {};
@@ -17,7 +18,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 	}
 	$scope.novo();
 	
-	$http({method: 'GET',url: URL_BASE+'services/fornecedor'}).then(function successCallback(response) {
+	$http({method: 'GET',url: URL_API+'/fornecedor'}).then(function successCallback(response) {
 		$scope.listaFornecedor=response.data;
 		
 		loadingOff();
@@ -25,7 +26,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		console.log('Ocorreu um erro!');
 	});
 	
-	$http({method: 'GET',url: URL_BASE+'services/vendedor'}).then(function successCallback(response) {
+	$http({method: 'GET',url: URL_API+'/vendedor'}).then(function successCallback(response) {
 		$scope.listaVendedor=response.data;
 		
 		
@@ -34,7 +35,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		console.log('Ocorreu um erro!');
 	});
 	
-	$http({method: 'GET',url: URL_BASE+'services/telemarketing'}).then(function successCallback(response) {
+	$http({method: 'GET',url: URL_API+'/vendedor'}).then(function successCallback(response) {
 		$scope.listaTelemarketing=response.data;
 		
 		loadingOff();
@@ -48,7 +49,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		
 		if (search.length > 3) {
 			loadingOn();
-			$http({method: 'GET',url: URL_BASE+'services/cliente/search/'+search}).then(function successCallback(response) {
+			$http({method: 'GET',url: URL_API+'services/cliente/search/'+search}).then(function successCallback(response) {
 				$scope.clientes=response.data;
 				
 				loadingOff();
@@ -62,7 +63,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 	$scope.pesquisarPedido = function () {
 		
 		loadingOn();
-		$http({method: 'GET',url: URL_BASE+'services/pedido/'+$scope.pedido.pedido}).then(function successCallback(response) {
+		$http({method: 'GET',url: URL_API+'services/pedido/'+$scope.pedido.pedido}).then(function successCallback(response) {
 			
 			if (response.data) {
 				console.log(response.data);
@@ -136,7 +137,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		
 		
 		loadingOn();
-		$http({method: 'POST',url: URL_BASE+'services/pedido',data: {pedidox:$scope.pedido}}).then(function successCallback(response) {
+		$http({method: 'POST',url: URL_API+'services/pedido',data: {pedidox:$scope.pedido}}).then(function successCallback(response) {
 			
 			
 			
@@ -169,7 +170,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		
 		if (search.length > 2) {
 			loadingOn();
-			$http({method: 'GET',url: URL_BASE+'services/produto/search/'+search}).then(function successCallback(response) {
+			$http({method: 'GET',url: URL_API+'services/produto/search/'+search}).then(function successCallback(response) {
 				$scope.produtos=response.data;
 				
 				loadingOff();
@@ -210,7 +211,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		if (!contains($scope.itens,$scope.pItem)) {
 			
 			loadingOn();
-			$http({method: 'POST',url: URL_BASE+'services/pedidoItem',data: {pItemx:$scope.pItem}}).then(function successCallback(response) {
+			$http({method: 'POST',url: URL_API+'services/pedidoItem',data: {pItemx:$scope.pItem}}).then(function successCallback(response) {
 				//alert('Produto adicionado!');
 				$scope.itens.push(response.data);
 				$scope.produto = {};
@@ -230,7 +231,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 	}
 	
 	$scope.carregaFornecedor = function() {
-		$http({method: 'GET',url: URL_BASE+'services/fornecedor/'+$scope.pedido.fornecedor}).then(function successCallback(response) {
+		$http({method: 'GET',url: URL_API+'services/fornecedor/'+$scope.pedido.fornecedor}).then(function successCallback(response) {
 			$scope.fornecedor = response.data;
 			
 			//$scope.fornecedor.comissao_vend = ($scope.fornecedor.comissao_vend*100)+'%';
@@ -256,7 +257,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		}
 				
 		loadingOn();
-		$http({method: 'POST',url: URL_BASE+'services/baixa',data: {pedidox:$scope.pedido}}).then(function successCallback(response) {
+		$http({method: 'POST',url: URL_API+'services/baixa',data: {pedidox:$scope.pedido}}).then(function successCallback(response) {
 			alert('Pedido baixado com sucesso!');
 			$scope.pItem = {};
 			loadingOff();
@@ -273,7 +274,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 		}
 		
 		loadingOn();
-		$http({method: 'DELETE',url: URL_BASE+'services/pedidoItem/'+item.pedido+'/'+item.produto}).then(function successCallback(response) {
+		$http({method: 'DELETE',url: URL_API+'services/pedidoItem/'+item.pedido+'/'+item.produto}).then(function successCallback(response) {
 			$scope.pesquisarPedidoItem();
 			loadingOff();
 		}, function errorCallback(response) {
@@ -282,7 +283,7 @@ angular.module('admin').controller('NewsletterCtrl', ["$scope", "$http", functio
 	};
 	
 	$scope.pesquisarPedidoItem = function () {
-		$http({method: 'GET',url: URL_BASE+'services/pedidoItem/'+$scope.pedido.pedido}).then(function successCallback(response) {
+		$http({method: 'GET',url: URL_API+'services/pedidoItem/'+$scope.pedido.pedido}).then(function successCallback(response) {
 			if (response.data) {
 				console.log(response.data);
 				$scope.pedidoItem = true;
