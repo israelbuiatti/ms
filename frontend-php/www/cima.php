@@ -37,7 +37,7 @@ session_start();
 
 	<base href="https://buiatti-ms-frontend-php.herokuapp.com/">
 	<script>
-		var URL_API = "<?= $_ENV["URL_API"] ?>"
+		var URL_API = "https://buiatti-ms-backend.herokuapp.com"
 	</script>
 
 
