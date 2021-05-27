@@ -34,9 +34,10 @@ session_start();
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<base href="http://localhost:88/">
+
+	<base href="<?= $_ENV["URL_BASE"] ?>">
 	<script>
-		var URL_API = "http://localhost:3333"
+		var URL_API = "<?= $_ENV["URL_API"] ?>"
 	</script>
 
 
