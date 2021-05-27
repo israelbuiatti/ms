@@ -1,5 +1,12 @@
 <div class="form-group">
 	<div class="col-sm-4">
+		<label>Código</label>
+		<input class="form-control" type="text" ng-model="cliente.codigo" disabled style="width:100px">
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-4">
 		<label>Razão Social</label>
 		<input class="form-control" type="text" ng-model="cliente.razao_social">
 	</div>

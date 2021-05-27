@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function ($scope, $http) {
+angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", function ($scope, $http) {
 
 	$scope.novo = function() {
 		$scope.pedido = {};

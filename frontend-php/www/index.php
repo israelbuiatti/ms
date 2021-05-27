@@ -2,7 +2,9 @@
 <script src="scripts/controllers/PedidoCtrl.js"></script>
 
 
-
+<script>
+	location.href='/pages/cliente'
+</script>
 
 
 <!-- Content Wrapper. Contains page content -->

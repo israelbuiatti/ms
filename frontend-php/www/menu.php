@@ -27,9 +27,9 @@
 		<ul class="sidebar-menu">
 			<li class="header">MENU</li>
 			<li id="menucliente"><a href="pages/cliente"><i class=" fa fa-book"></i> <span>Cliente</span></a></li>
-			<li id="menunewsletter"><a href="newsletter.php"><i class=" fa fa-book"></i> <span>Produto</span></a></li>
-			<li id="menunewsletter"><a href="newsletter.php"><i class=" fa fa-book"></i> <span>Fornecedor</span></a></li>
-			<li id="menunewsletter"><a href="newsletter.php"><i class=" fa fa-book"></i> <span>Vendedor</span></a></li>
+			<li id="menufornecedor"><a href="pages/fornecedor"><i class=" fa fa-book"></i> <span>Fornecedor</span></a></li>
+			<li id="menuproduto"><a href="pages/produto"><i class=" fa fa-book"></i> <span>Produto</span></a></li>
+			<li id="menuvendedor"><a href="pages/vendedor"><i class=" fa fa-book"></i> <span>Vendedor</span></a></li>
 			<li id="menupedido"><a href="pedido.php"><i class=" fa fa-book"></i> <span>Pedido</span></a></li>
 		</ul>
 	</section>
