@@ -1,14 +1,14 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Código</label>
-		<input class="form-control" type="text" ng-model="cliente.codigo" disabled style="width:100px">
+		<input class="form-control" type="text" ng-model="cliente.id" disabled style="width:100px">
 	</div>
 </div>
 
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Razão Social</label>
-		<input class="form-control" type="text" ng-model="cliente.razao_social">
+		<input class="form-control" type="text" ng-model="cliente.nome_razao">
 	</div>
 
 	<div class="col-sm-4">
@@ -92,7 +92,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-phone"></i>
 			</div>
-			<input ng-model="cliente.telefone1" class="form-control">
+			<input ng-model="cliente.tel1" class="form-control">
 		</div>
 	</div>
 
@@ -103,7 +103,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-phone"></i>
 			</div>
-			<input ng-model="cliente.telefone2" class="form-control">
+			<input ng-model="cliente.tel2" class="form-control">
 		</div>
 	</div>
 
@@ -114,7 +114,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-phone"></i>
 			</div>
-			<input ng-model="cliente.telefone3" class="form-control">
+			<input ng-model="cliente.fax" class="form-control">
 		</div>
 	</div>
 </div>

@@ -14,7 +14,7 @@ class ClienteRepository extends BaseRepository {
         const result = await this.db()
             .returning('*')
             .insert(cliente);
-        return result;
+        return result[0];
     }
 
     async update(cliente) {
