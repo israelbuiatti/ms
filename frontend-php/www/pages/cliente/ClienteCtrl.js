@@ -4,8 +4,12 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 	this.$onInit = () => {
 		$scope.cliente = {};
+		$scope.getEstados();
+		$scope.getCidades();
 	}
 
+
+	//---------------
 	$scope.isEmty = (param) => {
 
 		if (param == undefined || param == '') {
@@ -14,6 +18,34 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		return false;
 
 	}
+
+
+	$scope.getEstados = () => {
+
+		loadingOn();
+		$http({ method: 'GET', url: URL_API_CONSULTA_CEP + 'estado'})
+			.then(
+				(response) => $scope.listaEstados = response.data, 
+				(error) => alert(error.data.message)
+			)
+			.finally(() => loadingOff());
+
+	}
+	
+
+	$scope.getCidades = () => {
+
+		loadingOn();
+		$http({ method: 'GET', url: URL_API_CONSULTA_CEP + 'cidade/6' })
+			.then(
+				(response) => $scope.listaCidades = response.data,
+				(error) => alert(error.data.message)
+			)
+			.finally(() => loadingOff());
+
+	}
+
+	//---------------
 	
 
 
@@ -51,7 +83,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 			}, (error) => alert(error.data.message))
 			.finally(() => loadingOff());
 		
-	};
+	}
 	 
 			
   }]);

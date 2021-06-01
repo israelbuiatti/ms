@@ -8,7 +8,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Brigido | Painel de Controle</title>
+	<title>Buiatti | Painel de Controle</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -36,8 +36,13 @@ session_start();
 
 
 	<base href="https://buiatti-ms-frontend-php.herokuapp.com/">
+	<!-- <base href="http://localhost:88/"> -->
+
 	<script>
 		var URL_API = "https://buiatti-ms-backend.herokuapp.com/"
+		var URL_API = "https://buiatti-ms-consulta-cep.herokuapp.com/"
+		// var URL_API = "http://localhost:3333/"
+		// var URL_API_CONSULTA_CEP = "http://localhost:3334/"
 	</script>
 
 
