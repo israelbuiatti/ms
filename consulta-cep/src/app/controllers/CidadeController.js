@@ -13,7 +13,6 @@ export default class CidadeController {
 	}
 
 	async get(req, res) {
-		console.log(req.params);
 		const { id } = req.params;
 		const result = await this.cidadeService.findByIdEstado(id);
 		return res.json(result);
