@@ -40,7 +40,7 @@ session_start();
 
 	<script>
 		var URL_API = "https://buiatti-ms-backend.herokuapp.com/"
-		var URL_API = "https://buiatti-ms-consulta-cep.herokuapp.com/"
+		var URL_API_CONSULTA_CEP = "https://buiatti-ms-consulta-cep.herokuapp.com/"
 		// var URL_API = "http://localhost:3333/"
 		// var URL_API_CONSULTA_CEP = "http://localhost:3334/"
 	</script>
