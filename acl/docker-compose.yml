@@ -1,0 +1,6 @@
+version: '3'
+services:
+ docker-app:
+    image: israelbuiatti/acl-app
+    ports:
+      - "8090:8080"
