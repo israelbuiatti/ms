@@ -10,6 +10,22 @@ class ClienteRepository extends BaseRepository {
         return results;
     }
 
+    async busca(cliente) {
+
+        let query = this.db();
+
+        if (cliente.nome_razao) {
+            query.whereRaw('LOWER(nome_razao) LIKE ?', '%' + cliente.nome_razao.toLowerCase() + '%');
+        }
+
+        if (cliente.cnpj) {
+            query.where('cnpj', cliente.cnpj);
+        }
+
+        return await query;
+
+    }
+
     async insert(cliente) {
         const result = await this.db()
             .returning('*')
@@ -33,7 +49,6 @@ class ClienteRepository extends BaseRepository {
         await this.findById(id);
         await this.db().where('id', id).del();
     }
-
 
 
 }

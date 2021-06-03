@@ -1,3 +1,23 @@
+<div class="col-md-6" style="margin-bottom:20px">
+	<form role="form">
+		<div class="box-body">
+			<div class="form-group">
+				<label>Razão Social</label>
+				<input class="form-control" placeholder="Digite Razão Social" ng-model="busca.nome_razao">
+			</div>
+			<div class="form-group">
+				<label>CNPJ</label>
+				<input class="form-control" placeholder="Digite o CNPJ" ng-model="busca.cnpj">
+			</div>
+		</div>
+
+		<div class="box-footer">
+			<button type="submit" class="btn btn-primary" ng-click="buscar()">Buscar</button>
+		</div>
+	</form>
+
+</div>
+
 
 <div class="box-body">
 	<table id="example2" class="table table-bordered table-hover">

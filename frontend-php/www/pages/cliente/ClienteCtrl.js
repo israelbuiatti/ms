@@ -51,7 +51,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 	$scope.cancel = () => {
 		$scope.state = "search";
 		$scope.cliente = {};
-		$scope.clienteRef = {};
+		$scope.busca = {};
 
 	}
 
@@ -125,10 +125,42 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 	}
 
+	$scope.excluir = (item) => {
+
+		if (!confirm("Confirmar exclusão?")) return;
+
+		loadingOn();
+		$http({ method: 'DELETE', url: URL_API + 'cliente/' + item.id})
+			.then((response) => {
+
+				alert("Pedido excluido com sucesso.");
+				$scope.cancel();
+				$scope.getListaClientes();
+
+
+			}, (error) => alert(error.data.message))
+			.finally(() => loadingOff());
+
+	}
+
 	$scope.getListaClientes = () => {
 
 		loadingOn();
 		$http({ method: 'GET', url: URL_API + 'cliente'})
+			.then(
+				(response) => $scope.listaClientes = response.data,
+				(error) => alert(error.data.message)
+			)
+			.finally(() => loadingOff());
+
+	}
+
+	$scope.buscar = () => {
+
+		console.log('busca', $scope.busca);
+
+		loadingOn();
+		$http({ method: 'POST', url: URL_API + 'cliente/busca', data: $scope.busca })
 			.then(
 				(response) => $scope.listaClientes = response.data,
 				(error) => alert(error.data.message)
