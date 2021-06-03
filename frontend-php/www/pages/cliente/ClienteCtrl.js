@@ -3,9 +3,10 @@
 angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function ($scope, $http) {
 
 	this.$onInit = () => {
-		$scope.cliente = {};
+		$scope.cancel();
 		$scope.getEstados();
 		$scope.getCidades();
+		$scope.getListaClientes();
 	}
 
 
@@ -47,7 +48,27 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 	//---------------
 	
+	$scope.cancel = () => {
+		$scope.state = "search";
+		$scope.cliente = {};
+		$scope.clienteRef = {};
 
+	}
+
+	$scope.preparaCadastrar = () => {
+		$scope.state = "insert";
+
+	}
+
+	$scope.preparaAlterar = (item) => {
+		$scope.state = "update";
+		$scope.cliente = angular.copy(item);
+		
+	}
+
+	$scope.excluir = () => {
+
+	}
 
 	const validar = () => {
 
@@ -77,12 +98,43 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 			.then((response) => {
 				
 				alert("Pedido cadastrado com sucesso. Número " + response.data.id);
-				$scope.cliente = {};
+				$scope.listaClientes.push(response.data);
+				$scope.cancel();
 				
 				
 			}, (error) => alert(error.data.message))
 			.finally(() => loadingOff());
 		
+	}
+
+	$scope.alterar = () => {
+
+		if (!validar()) return false;
+
+		loadingOn();
+		$http({ method: 'PUT', url: URL_API + 'cliente/' + $scope.cliente.id, data: $scope.cliente })
+			.then((response) => {
+
+				alert("Pedido alterado com sucesso.");
+				$scope.cancel();
+				$scope.getListaClientes();
+
+
+			}, (error) => alert(error.data.message))
+			.finally(() => loadingOff());
+
+	}
+
+	$scope.getListaClientes = () => {
+
+		loadingOn();
+		$http({ method: 'GET', url: URL_API + 'cliente'})
+			.then(
+				(response) => $scope.listaClientes = response.data,
+				(error) => alert(error.data.message)
+			)
+			.finally(() => loadingOff());
+
 	}
 	 
 			
