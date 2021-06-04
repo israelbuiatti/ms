@@ -1,14 +1,14 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Código</label>
-		<input class="form-control" type="text" ng-model="fornecedor.codigo" disabled style="width:100px">
+		<input class="form-control" type="text" ng-model="fornecedor.id" disabled style="width:100px">
 	</div>
 </div>
 
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Razão Social</label>
-		<input class="form-control" type="text" ng-model="fornecedor.razao_social">
+		<input class="form-control" type="text" ng-model="fornecedor.nome_razao">
 	</div>
 
 </div>
@@ -29,17 +29,15 @@
 
 	<div class="col-sm-3">
 		<label>Estado</label>
-		<select class="form-control" ng-model="fornecedor.estado" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaEstados" ng-model="fornecedor.id_estado" ng-change="changeEstado()">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaFornecedor" value="{{option1.id}}">{{option1.nome_razao}}</option>
 		</select>
 	</div>
 
 	<div class="col-sm-3">
 		<label>Cidade</label>
-		<select class="form-control" ng-model="fornecedor.cidade" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaCidades" ng-model="fornecedor.id_cidade">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaFornecedor" value="{{option1.id}}">{{option1.nome_razao}}</option>
 		</select>
 	</div>
 
@@ -75,7 +73,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-percent"></i>
 			</div>
-			<input ng-model="fornecedor.telefone1" class="form-control">
+			<input ng-model="fornecedor.comissao_repr" class="form-control">
 		</div>
 	</div>
 
@@ -86,7 +84,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-percent"></i>
 			</div>
-			<input ng-model="fornecedor.telefone2" class="form-control">
+			<input ng-model="fornecedor.comissao_vend" class="form-control">
 		</div>
 	</div>
 
@@ -97,7 +95,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-percent"></i>
 			</div>
-			<input ng-model="fornecedor.telefone3" class="form-control">
+			<input ng-model="fornecedor.comissao_tel" class="form-control">
 		</div>
 	</div>
 </div>

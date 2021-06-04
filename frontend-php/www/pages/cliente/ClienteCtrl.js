@@ -6,7 +6,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		$scope.cancel();
 		$scope.getEstados();
 		$scope.getListaRegiao();
-		$scope.getListaClientes();
+		$scope.buscar();
 	}
 
 
@@ -124,7 +124,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 				alert("Pedido alterado com sucesso.");
 				$scope.cancel();
-				$scope.getListaClientes();
+				$scope.buscar();
 
 
 			}, (error) => alert(error.data.message))
@@ -142,7 +142,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 				alert("Pedido excluido com sucesso.");
 				$scope.cancel();
-				$scope.getListaClientes();
+				$scope.buscar();
 
 
 			}, (error) => alert(error.data.message))
@@ -150,21 +150,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 	}
 
-	$scope.getListaClientes = () => {
-
-		loadingOn();
-		$http({ method: 'GET', url: URL_API + 'cliente'})
-			.then(
-				(response) => $scope.listaClientes = response.data,
-				(error) => alert(error.data.message)
-			)
-			.finally(() => loadingOff());
-
-	}
-
 	$scope.buscar = () => {
-
-		console.log('busca', $scope.busca);
 
 		loadingOn();
 		$http({ method: 'POST', url: URL_API + 'cliente/busca', data: $scope.busca })

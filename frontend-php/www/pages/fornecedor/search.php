@@ -24,13 +24,13 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Nome Razão</th>
+				<th>Razão Social</th>
 				<th>CNPJ</th>
 				<th width="10%"></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="item in listaClientes">
+			<tr ng-repeat="item in listaFornecedores">
 				<td>{{item.id}}</td>
 				<td>{{item.nome_razao}}</td>
 				<td>{{item.cnpj}}</td>

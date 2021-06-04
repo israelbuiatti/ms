@@ -17,6 +17,10 @@ class FornecedorService {
         return results;
     }
 
+    async busca(fornecedor) {
+        return await this.repository.busca(fornecedor);
+    }
+
     async insert(fornecedor) {
 
         this.validar(fornecedor);

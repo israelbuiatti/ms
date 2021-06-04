@@ -13,6 +13,18 @@ export default class FornecedorController {
 		return res.json(results);
 	}
 
+	async busca(req, res) {
+
+		console.log('req', req.body);
+
+		const fornecedor = Fornecedor.create(req.body);
+
+		const result = await this.fornecedorService.busca(fornecedor);
+
+		return res.json(result);
+
+	}
+
 	async get(req, res) {
 		const { id } = req.params;
 		const result = await this.fornecedorService.findById(id);

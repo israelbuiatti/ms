@@ -10,11 +10,29 @@ class FornecedorRepository extends BaseRepository {
         return results;
     }
 
+    async busca(fornecedor) {
+
+        console.log(fornecedor);
+
+        let query = this.db();
+
+        if (fornecedor.nome_razao) {
+            query.whereRaw('LOWER(nome_razao) LIKE ?', '%' + fornecedor.nome_razao.toLowerCase() + '%');
+        }
+
+        if (fornecedor.cnpj) {
+            query.where('cnpj', fornecedor.cnpj);
+        }
+
+        return await query;
+
+    }
+
     async insert(fornecedor) {
         const result = await this.db()
             .returning('*')
             .insert(fornecedor);
-        return result;
+        return result[0];
     }
 
     async update(fornecedor) {
