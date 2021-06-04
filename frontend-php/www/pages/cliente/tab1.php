@@ -33,17 +33,15 @@
 
 	<div class="col-sm-3">
 		<label>Estado</label>
-		<select class="form-control" ng-model="cliente.estado" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaEstados" ng-model="cliente.id_estado" ng-change="changeEstado()">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaEstados" value="{{option1.id}}">{{option1.descricao}}</option>
 		</select>
 	</div>
 
 	<div class="col-sm-3">
 		<label>Cidade</label>
-		<select class="form-control" ng-model="cliente.cidade" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaCidades" ng-model="cliente.id_cidade">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaCidades" value="{{option1.id}}">{{option1.descricao}}</option>
 		</select>
 	</div>
 
@@ -74,9 +72,8 @@
 
 	<div class="col-sm-3">
 		<label>Região</label>
-		<select class="form-control" ng-model="cliente.regiao" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaRegiao" ng-model="cliente.id_regiao">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaFornecedor" value="{{option1.id}}">{{option1.nome_razao}}</option>
 		</select>
 	</div>
 

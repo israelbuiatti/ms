@@ -5,7 +5,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 	this.$onInit = () => {
 		$scope.cancel();
 		$scope.getEstados();
-		$scope.getCidades();
+		$scope.getListaRegiao();
 		$scope.getListaClientes();
 	}
 
@@ -26,7 +26,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		loadingOn();
 		$http({ method: 'GET', url: URL_API_CONSULTA_CEP + 'estado'})
 			.then(
-				(response) => $scope.listaEstados = response.data, 
+				(response) => $scope.listaEstados = response.data,
 				(error) => alert(error.data.message)
 			)
 			.finally(() => loadingOff());
@@ -34,16 +34,22 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 	}
 	
 
-	$scope.getCidades = () => {
+	$scope.getCidades = (id) => {
+
+		if (!id) return;
 
 		loadingOn();
-		$http({ method: 'GET', url: URL_API_CONSULTA_CEP + 'cidade/6' })
+		$http({ method: 'GET', url: URL_API_CONSULTA_CEP + 'cidade/' + id })
 			.then(
 				(response) => $scope.listaCidades = response.data,
 				(error) => alert(error.data.message)
 			)
 			.finally(() => loadingOff());
 
+	}
+
+	$scope.changeEstado = () => {
+		$scope.getCidades($scope.cliente.id_estado);
 	}
 
 	//---------------
@@ -63,6 +69,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 	$scope.preparaAlterar = (item) => {
 		$scope.state = "update";
 		$scope.cliente = angular.copy(item);
+		$scope.changeEstado();
 		
 	}
 
@@ -163,6 +170,18 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		$http({ method: 'POST', url: URL_API + 'cliente/busca', data: $scope.busca })
 			.then(
 				(response) => $scope.listaClientes = response.data,
+				(error) => alert(error.data.message)
+			)
+			.finally(() => loadingOff());
+
+	}
+
+	$scope.getListaRegiao = () => {
+
+		loadingOn();
+		$http({ method: 'GET', url: URL_API + 'regiao/' })
+			.then(
+				(response) => $scope.listaRegiao = response.data,
 				(error) => alert(error.data.message)
 			)
 			.finally(() => loadingOff());
