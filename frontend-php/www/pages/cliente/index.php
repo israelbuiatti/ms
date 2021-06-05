@@ -27,11 +27,11 @@
 			</div>
 
 
-			<div ng-if="state == 'search'">
+			<div ng-show="state == 'search'">
 				<?php include("search.php") ?>
 			</div>
 
-			<div ng-if="state == 'insert' || state == 'update'">
+			<div ng-show="state == 'insert' || state == 'update'">
 				<?php include("form.php") ?>
 			</div>
 

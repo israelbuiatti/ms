@@ -46,7 +46,7 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>CEP</label>
-		<input class="form-control" type="text" ng-model="fornecedor.cep" style="width:100px">
+		<input class="form-control" type="text" ng-model="fornecedor.cep" style="width:100px" data-inputmask="'mask': '99999-999'" data-mask="">
 	</div>
 </div>
 
@@ -73,7 +73,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-percent"></i>
 			</div>
-			<input ng-model="fornecedor.comissao_repr" class="form-control">
+			<input ng-model="fornecedor.comissao_repr" class="form-control moeda4">
 		</div>
 	</div>
 
@@ -84,7 +84,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-percent"></i>
 			</div>
-			<input ng-model="fornecedor.comissao_vend" class="form-control">
+			<input ng-model="fornecedor.comissao_vend" class="form-control moeda4">
 		</div>
 	</div>
 
@@ -95,7 +95,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-percent"></i>
 			</div>
-			<input ng-model="fornecedor.comissao_tel" class="form-control">
+			<input ng-model="fornecedor.comissao_tel" class="form-control moeda4">
 		</div>
 	</div>
 </div>

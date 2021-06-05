@@ -22,17 +22,17 @@
 		<div style="text-align:right">
 			<a class="btn btn-app" ng-click="preparaCadastrar()"><i class="fa fa-plus"></i> Novo </a>
 		</div>
-
+		
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Fornecedor</h3>
 			</div>
 
-			<div ng-if="state == 'search'">
+			<div ng-show="state == 'search'">
 				<?php include("search.php") ?>
 			</div>
 
-			<div ng-if="state == 'insert' || state == 'update'">
+			<div ng-show="state == 'insert' || state == 'update'">
 				<?php include("form.php") ?>
 			</div>
 

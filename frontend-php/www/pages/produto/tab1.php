@@ -1,16 +1,15 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Código</label>
-		<input class="form-control" type="text" ng-model="produto.codigo" disabled style="width:100px">
+		<input class="form-control" type="text" ng-model="produto.id" disabled style="width:100px">
 	</div>
 </div>
 
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Fornecedor</label>
-		<select class="form-control" ng-model="produto.estado" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.nome_razao for item in listaFornecedor" ng-model="produto.id_fornecedor">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaFornecedor" value="{{option1.id}}">{{option1.nome_razao}}</option>
 		</select>
 	</div>
 </div>

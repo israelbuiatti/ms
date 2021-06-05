@@ -17,6 +17,10 @@ class ProdutoService {
         return results;
     }
 
+    async busca(produto) {
+        return await this.repository.busca(produto);
+    }
+
     async insert(produto) {
 
         this.validar(produto);

@@ -72,10 +72,6 @@ angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", functio
 
 	}
 
-	$scope.excluir = () => {
-
-	}
-
 	const validar = () => {
 
 		if ($scope.isEmty($scope.fornecedor.nome_razao)) {

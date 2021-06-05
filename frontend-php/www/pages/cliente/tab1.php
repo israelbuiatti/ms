@@ -50,7 +50,7 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>CEP</label>
-		<input class="form-control" type="text" ng-model="cliente.cep" style="width:100px">
+		<input class="form-control" type="text" ng-model="cliente.cep" style="width:100px" data-inputmask="'mask': '99999-999'" data-mask="">
 	</div>
 </div>
 

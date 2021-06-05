@@ -10,6 +10,22 @@ class ProdutoRepository extends BaseRepository {
         return results;
     }
 
+    async busca(produto) {
+
+        let query = this.db();
+
+        if (produto.descricao) {
+            query.whereRaw('LOWER(descricao) LIKE ?', '%' + produto.descricao.toLowerCase() + '%');
+        }
+
+        if (produto.id_fornecedor) {
+            query.where('id_fornecedor', produto.id_fornecedor);
+        }
+
+        return await query;
+
+    }
+
     async insert(produto) {
         const result = await this.db()
             .returning('*')

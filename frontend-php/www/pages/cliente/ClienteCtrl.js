@@ -73,10 +73,6 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		
 	}
 
-	$scope.excluir = () => {
-
-	}
-
 	const validar = () => {
 
 		if ($scope.isEmty($scope.cliente.nome_razao)) {
