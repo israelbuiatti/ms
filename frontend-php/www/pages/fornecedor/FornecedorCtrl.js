@@ -91,7 +91,7 @@ angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", functio
 		$http({ method: 'POST', url: URL_API + 'fornecedor', data: $scope.fornecedor })
 			.then((response) => {
 
-				alert("Pedido cadastrado com sucesso. Número " + response.data.id);
+				alert("Fornecedor cadastrado com sucesso. Número " + response.data.id);
 				$scope.listaFornecedores.push(response.data);
 				$scope.cancel();
 
@@ -109,7 +109,7 @@ angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", functio
 		$http({ method: 'PUT', url: URL_API + 'fornecedor/' + $scope.fornecedor.id, data: $scope.fornecedor })
 			.then((response) => {
 
-				alert("Pedido alterado com sucesso.");
+				alert("Fornecedor alterado com sucesso.");
 				$scope.cancel();
 				$scope.buscar();
 
@@ -127,7 +127,7 @@ angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", functio
 		$http({ method: 'DELETE', url: URL_API + 'fornecedor/' + item.id })
 			.then((response) => {
 
-				alert("Pedido excluido com sucesso.");
+				alert("Fornecedor excluido com sucesso.");
 				$scope.cancel();
 				$scope.buscar();
 

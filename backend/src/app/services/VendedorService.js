@@ -17,6 +17,10 @@ class VendedorService {
         return results;
     }
 
+    async busca(vendedor) {
+        return await this.repository.busca(vendedor);
+    }
+
     async insert(vendedor) {
 
         this.validar(vendedor);

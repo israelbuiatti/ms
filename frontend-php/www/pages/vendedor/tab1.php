@@ -1,7 +1,7 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>Código</label>
-		<input class="form-control" type="text" ng-model="vendedor.codigo" disabled style="width:100px">
+		<input class="form-control" type="text" ng-model="vendedor.id" disabled style="width:100px">
 	</div>
 </div>
 
@@ -29,17 +29,15 @@
 
 	<div class="col-sm-3">
 		<label>Estado</label>
-		<select class="form-control" ng-model="vendedor.estado" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaEstados" ng-model="vendedor.id_estado" ng-change="changeEstado()">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaFornecedor" value="{{option1.id}}">{{option1.nome_razao}}</option>
 		</select>
 	</div>
 
 	<div class="col-sm-3">
 		<label>Cidade</label>
-		<select class="form-control" ng-model="vendedor.cidade" ng-change="carregaFornecedor()">
+		<select class="form-control" ng-options="item.id as item.descricao for item in listaCidades" ng-model="vendedor.id_cidade">
 			<option value=""> - Selecione - </option>
-			<option ng-repeat="option1 in listaFornecedor" value="{{option1.id}}">{{option1.nome_razao}}</option>
 		</select>
 	</div>
 
@@ -48,7 +46,7 @@
 <div class="form-group">
 	<div class="col-sm-4">
 		<label>CEP</label>
-		<input class="form-control" type="text" ng-model="vendedor.cep" style="width:100px">
+		<input class="form-control" type="text" ng-model="vendedor.cep" style="width:100px" data-inputmask="'mask': '99999-999'" data-mask="">
 	</div>
 </div>
 
@@ -75,7 +73,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-phone"></i>
 			</div>
-			<input ng-model="vendedor.telefone1" class="form-control">
+			<input ng-model="vendedor.tel1" class="form-control">
 		</div>
 	</div>
 
@@ -86,7 +84,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-phone"></i>
 			</div>
-			<input ng-model="vendedor.telefone2" class="form-control">
+			<input ng-model="vendedor.tel2" class="form-control">
 		</div>
 	</div>
 

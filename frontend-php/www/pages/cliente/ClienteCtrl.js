@@ -100,7 +100,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		$http({method: 'POST',url: URL_API+'cliente',data: $scope.cliente})
 			.then((response) => {
 				
-				alert("Pedido cadastrado com sucesso. Número " + response.data.id);
+				alert("Fornecedor cadastrado com sucesso. Número " + response.data.id);
 				$scope.listaClientes.push(response.data);
 				$scope.cancel();
 				
@@ -118,7 +118,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		$http({ method: 'PUT', url: URL_API + 'cliente/' + $scope.cliente.id, data: $scope.cliente })
 			.then((response) => {
 
-				alert("Pedido alterado com sucesso.");
+				alert("Fornecedor alterado com sucesso.");
 				$scope.cancel();
 				$scope.buscar();
 
@@ -136,7 +136,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 		$http({ method: 'DELETE', url: URL_API + 'cliente/' + item.id})
 			.then((response) => {
 
-				alert("Pedido excluido com sucesso.");
+				alert("Fornecedor excluido com sucesso.");
 				$scope.cancel();
 				$scope.buscar();
 

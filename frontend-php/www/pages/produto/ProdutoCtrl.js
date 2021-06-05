@@ -60,7 +60,7 @@ angular.module('admin').controller('ProdutoCtrl', ["$scope", "$http", function (
 		$http({ method: 'POST', url: URL_API + 'produto', data: $scope.produto })
 			.then((response) => {
 
-				alert("Pedido cadastrado com sucesso. Número " + response.data.id);
+				alert("Produto cadastrado com sucesso. Número " + response.data.id);
 				$scope.listaProdutos.push(response.data);
 				$scope.cancel();
 
@@ -78,7 +78,7 @@ angular.module('admin').controller('ProdutoCtrl', ["$scope", "$http", function (
 		$http({ method: 'PUT', url: URL_API + 'produto/' + $scope.produto.id, data: $scope.produto })
 			.then((response) => {
 
-				alert("Pedido alterado com sucesso.");
+				alert("Produto alterado com sucesso.");
 				$scope.cancel();
 				$scope.buscar();
 
@@ -96,7 +96,7 @@ angular.module('admin').controller('ProdutoCtrl', ["$scope", "$http", function (
 		$http({ method: 'DELETE', url: URL_API + 'produto/' + item.id })
 			.then((response) => {
 
-				alert("Pedido excluido com sucesso.");
+				alert("Produto excluido com sucesso.");
 				$scope.cancel();
 				$scope.buscar();
 

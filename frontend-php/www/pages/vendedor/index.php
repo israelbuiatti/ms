@@ -20,46 +20,22 @@
 
 
 		<div style="text-align:right">
-			<a class="btn btn-app" ng-click="novo()"><i class="fa fa-plus"></i> Novo </a>
+			<a class="btn btn-app" ng-click="preparaCadastrar() "><i class="fa fa-plus"></i> Novo </a>
 		</div>
 
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Vendedor</h3>
 			</div>
-			<!-- /.box-header -->
-			<!-- form start -->
 
-			<form class="form-horizontal">
-				<div class="box-body">
+			<div ng-show="state == 'search'">
+				<?php include("search.php") ?>
+			</div>
 
+			<div ng-show="state == 'insert' || state == 'update'">
+				<?php include("form.php") ?>
+			</div>
 
-
-					<div class="nav-tabs-custom">
-						<ul class="nav nav-tabs">
-							<li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="true">Dados</a></li>
-						</ul>
-						<div class="tab-content">
-							<div class="tab-pane active" id="tab1">
-								<?php include("tab1.php") ?>
-							</div>
-						</div>
-					</div>
-
-
-
-				</div>
-
-				<div class="box-footer">
-					<button type="submit" class="btn btn-primary" ng-click="cadastrar()">Cadastrar</button>
-					<button type="submit" class="btn btn-primary" ng-click="alterar()">Alterar</button>
-					<button type="submit" class="btn" ng-click="cancelar()">Cancelar</button>
-				</div>
-
-			</form>
-			<!-- /.box-body -->
-
-			<!-- /.box-footer -->
 		</div>
 
 	</section>

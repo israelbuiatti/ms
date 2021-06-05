@@ -13,6 +13,16 @@ export default class VendedorController {
 		return res.json(results);
 	}
 
+	async busca(req, res) {
+
+		const vendedor = Vendedor.create(req.body);
+
+		const result = await this.vendedorService.busca(vendedor);
+
+		return res.json(result);
+
+	}
+
 	async get(req, res) {
 		const { id } = req.params;
 		const result = await this.vendedorService.findById(id);
