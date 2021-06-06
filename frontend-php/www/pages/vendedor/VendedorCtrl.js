@@ -10,7 +10,7 @@ angular.module('admin').controller('VendedorCtrl', ["$scope", "$http", function 
 
 
 	//---------------
-	$scope.isEmty = (param) => {
+	$scope.isEmpty = (param) => {
 
 		if (param == undefined || param == '') {
 			return true;
@@ -74,7 +74,7 @@ angular.module('admin').controller('VendedorCtrl', ["$scope", "$http", function 
 
 	const validar = () => {
 
-		if ($scope.isEmty($scope.vendedor.nome)) {
+		if ($scope.isEmpty($scope.vendedor.nome)) {
 			alert('Campo Nome obrigatório!');
 			return false;
 		}

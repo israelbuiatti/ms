@@ -1,10 +1,14 @@
 import PedidoRepository from '../repository/PedidoRepository'
+import PedidoItemRepository from '../repository/PedidoItemRepository'
 import AppError from '../exception/AppError';
+import UTIL from '../utils/util';
+import { returning } from '../../database';
 
 class PedidoService {
 
     constructor() {
         this.repository = new PedidoRepository();
+        this.repositoryPedidoItem = new PedidoItemRepository();
     }
 
     async findById(id) {
@@ -17,9 +21,15 @@ class PedidoService {
         return results;
     }
 
+    async busca(pedido) {
+        return await this.repository.busca(pedido);
+    }
+
     async insert(pedido) {
 
         this.validar(pedido);
+
+        pedido.data = UTIL.reformatDate(pedido.data);
 
         const result = await this.repository.insert(pedido);
         return result;
@@ -39,9 +49,12 @@ class PedidoService {
     }
 
     validar(pedido) {
-        if (!pedido.id_cliente) throw new AppError("Campo Cliente obrigatório!");
+        //if (!pedido.id_cliente) throw new AppError("Campo Cliente obrigatório!");
     }
 
+    validarPedidoItem(pedido) {
+        //if (!pedido.id_cliente) throw new AppError("Campo Cliente obrigatório!");
+    }
 
 
 }

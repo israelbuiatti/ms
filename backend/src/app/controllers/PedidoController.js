@@ -1,4 +1,5 @@
 import Pedido from '../models/Pedido';
+import PedidoItem from '../models/PedidoItem';
 import PedidoService from '../services/PedidoService';
 
 export default class PedidoController {
@@ -11,6 +12,16 @@ export default class PedidoController {
 	async list(req, res) {
 		const results = await this.pedidoService.findAll();
 		return res.json(results);
+	}
+
+	async busca(req, res) {
+
+		const pedido = Pedido.create(req.body);
+
+		const result = await this.pedidoService.busca(pedido);
+
+		return res.json(result);
+
 	}
 
 	async get(req, res) {

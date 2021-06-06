@@ -1,5 +1,7 @@
 import FornecedorRepository from '../repository/FornecedorRepository'
 import AppError from '../exception/AppError';
+import UTIL from '../utils/util';
+
 
 class FornecedorService {
 
@@ -48,19 +50,11 @@ class FornecedorService {
     validar(fornecedor) {
         if (!fornecedor.nome_razao) throw new AppError("Campo Razão Social obrigatório!");
 
-        fornecedor.comissao_repr = this.moedaToUS(fornecedor.comissao_repr);
-        fornecedor.comissao_vend = this.moedaToUS(fornecedor.comissao_vend);
-        fornecedor.comissao_tel = this.moedaToUS(fornecedor.comissao_tel);
+        fornecedor.comissao_repr = UTIL.moedaToUS(fornecedor.comissao_repr);
+        fornecedor.comissao_vend = UTIL.moedaToUS(fornecedor.comissao_vend);
+        fornecedor.comissao_tel = UTIL.moedaToUS(fornecedor.comissao_tel);
 
     }
-
-    moedaToUS(value) {
-        value = value.toString();
-        value = value.split(".").join("");
-        value = value.split(",").join(".");
-        return value;
-    }
-
 
 }
 

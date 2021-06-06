@@ -10,7 +10,7 @@ angular.module('admin').controller('ProdutoCtrl', ["$scope", "$http", function (
 
 
 	//---------------
-	$scope.isEmty = (param) => {
+	$scope.isEmpty = (param) => {
 
 		if (param == undefined || param == '') {
 			return true;
@@ -39,11 +39,11 @@ angular.module('admin').controller('ProdutoCtrl', ["$scope", "$http", function (
 
 	const validar = () => {
 
-		if ($scope.isEmty($scope.produto.id_fornecedor)) {
+		if ($scope.isEmpty($scope.produto.id_fornecedor)) {
 			alert('Campo Fornecedor obrigatório!');
 			return false;
 		}
-		if ($scope.isEmty($scope.produto.descricao)) {
+		if ($scope.isEmpty($scope.produto.descricao)) {
 			alert('Campo Descrição obrigatório!');
 			return false;
 		}

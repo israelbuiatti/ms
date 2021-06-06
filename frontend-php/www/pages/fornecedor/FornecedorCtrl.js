@@ -10,7 +10,7 @@ angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", functio
 
 
 	//---------------
-	$scope.isEmty = (param) => {
+	$scope.isEmpty = (param) => {
 
 		if (param == undefined || param == '') {
 			return true;
@@ -74,7 +74,7 @@ angular.module('admin').controller('FornecedorCtrl', ["$scope", "$http", functio
 
 	const validar = () => {
 
-		if ($scope.isEmty($scope.fornecedor.nome_razao)) {
+		if ($scope.isEmpty($scope.fornecedor.nome_razao)) {
 			alert('Campo Razão Social obrigatório!');
 			return false;
 		}

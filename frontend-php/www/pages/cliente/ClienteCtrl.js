@@ -11,7 +11,7 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 
 	//---------------
-	$scope.isEmty = (param) => {
+	$scope.isEmpty = (param) => {
 
 		if (param == undefined || param == '') {
 			return true;
@@ -75,15 +75,15 @@ angular.module('admin').controller('ClienteCtrl', ["$scope", "$http", function (
 
 	const validar = () => {
 
-		if ($scope.isEmty($scope.cliente.nome_razao)) {
+		if ($scope.isEmpty($scope.cliente.nome_razao)) {
 			alert('Campo Razão Social obrigatório!');
 			return false;
 		}
-		if ($scope.isEmty($scope.cliente.comprador)) {
+		if ($scope.isEmpty($scope.cliente.comprador)) {
 			alert('Campo Comprador obrigatório!');
 			return false;
 		}
-		if ($scope.isEmty($scope.cliente.cnpj)) {
+		if ($scope.isEmpty($scope.cliente.cnpj)) {
 			alert('Campo CNPJ obrigatório!');
 			return false;
 		}
