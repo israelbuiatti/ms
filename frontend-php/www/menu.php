@@ -30,7 +30,7 @@
 			<li id="menufornecedor"><a href="pages/fornecedor/"><i class=" fa fa-book"></i> <span>Fornecedor</span></a></li>
 			<li id="menuproduto"><a href="pages/produto/"><i class=" fa fa-book"></i> <span>Produto</span></a></li>
 			<li id="menuvendedor"><a href="pages/vendedor/"><i class=" fa fa-book"></i> <span>Vendedor</span></a></li>
-			<li id="menupedido"><a href="pages/pedido"><i class=" fa fa-book"></i> <span>Pedido</span></a></li>
+			<li id="menupedido"><a href="pages/pedido/"><i class=" fa fa-book"></i> <span>Pedido</span></a></li>
 		</ul>
 	</section>
 	<!-- /.sidebar -->
