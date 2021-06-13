@@ -24,6 +24,24 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2     
+      
+      - name: Docker Login
+        uses: docker/login-action@v1.9.0
+        with:
+          username: ${{secrets.DOCKERHUB_USER}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2.4.0
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: |
+            israelbuiatti/ms-backend:latest
+            israelbuiatti/ms-backend:${{github.run_number}}      
+      
+      
 
       - name: Deploy to Heroku
         # You may pin to the exact commit or the version.
@@ -49,6 +67,24 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2     
+      
+      
+      - name: Docker Login
+        uses: docker/login-action@v1.9.0
+        with:
+          username: ${{secrets.DOCKERHUB_USER}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2.4.0
+        with:
+          context: ./frontend-php
+          file: ./frontend-php/Dockerfile
+          push: true
+          tags: |
+            israelbuiatti/ms-frontend:latest
+            israelbuiatti/ms-frontend:${{github.run_number}}     
+            
 
       - name: Deploy to Heroku
         # You may pin to the exact commit or the version.
@@ -69,7 +105,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2     
+      - uses: actions/checkout@v2
+      
+      
+      - name: Docker Login
+        uses: docker/login-action@v1.9.0
+        with:
+          username: ${{secrets.DOCKERHUB_USER}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2.4.0
+        with:
+          context: ./consulta-cep
+          file: ./consulta-cep/Dockerfile
+          push: true
+          tags: |
+            israelbuiatti/consulta-cep:latest
+            israelbuiatti/consulta-cep:${{github.run_number}}         
+
 
       - name: Deploy to Heroku
         uses: AkhileshNS/heroku-deploy@v3.12.12
