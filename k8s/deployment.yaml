@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: api
-  replicas: 2
+  replicas: 5
   template:
     metadata:
       labels:
@@ -31,6 +31,8 @@ spec:
           env:
             - name: NODE_ENV
               value: "production"
+            - name: PORT
+              value: "3333"
             - name: DB_HOST
               value: "ec2-3-95-87-221.compute-1.amazonaws.com"
             - name: DB_USER
@@ -44,9 +46,9 @@ spec:
             - name: DB_SSL
               value: "true"
             - name: REDIS_HOST
-              value: "ec2-34-226-131-228.compute-1.amazonaws.com"
+              value: "ec2-50-19-187-129.compute-1.amazonaws.com"
             - name: REDIS_PORT
-              value: "7529"
+              value: "28539"
             - name: REDIS_USER
               value: "h"
             - name: REDIS_PASS

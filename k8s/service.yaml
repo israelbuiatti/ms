@@ -8,5 +8,4 @@ spec:
   ports:
     - port: 80
       targetPort: 3333
-      nodePort: 30001
-  type: LoadBalancer
+  type: ClusterIP
