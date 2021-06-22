@@ -10,10 +10,10 @@
 			<table class="table">
 				<tr>
 					<th> Produto </th>
-					<th style="text-align:center"> Quantidade </th>
-					<th style="text-align:center"> Preço </th>
-					<th style="text-align:center"> Total </th>
-					<th style="text-align:center"> </th>
+					<th class="text-center"> Quantidade </th>
+					<th class="text-center"> Preço </th>
+					<th class="text-center"> Total </th>
+					<th class="text-center"> </th>
 				</tr>
 				<tr>
 					<td width="400px">
@@ -25,16 +25,24 @@
 					</td>
 					<td align="center"> <input class="form-control" ng-model="pItem.quantidade" type="text" style="width:100px"> </td>
 					<td align="center"> <input class="form-control moeda" ng-model="pItem.valor_unitario" type="text" style="width:100px"> </td>
-					<td style="text-align:center"> <button type="submit" class="btn btn-primary" ng-click="adicionarItem()">Adicionar</button> </td>
+					<td class="text-center"> <button type="submit" class="btn btn-primary" ng-click="adicionarItem()">Adicionar</button> </td>
 				</tr>
 				<tr ng-repeat="item in itens">
 					<td> {{item.descricao}} </td>
-					<td style="text-align:center"> {{item.quantidade}} </td>
-					<td style="text-align:center"> {{item.valor_unitario | currency:'R$ '}} </td>
-					<td style="text-align:center"> {{item.quantidade*item.valor_unitario | currency:'R$'}} </td>
+					<td class="text-center"> {{item.quantidade}} </td>
+					<td class="text-center"> {{item.valor_unitario | currency:'R$ '}} </td>
+					<td class="text-center"> {{item.quantidade*item.valor_unitario | currency:'R$'}} </td>
 					<td>
 						<button type="button" class="btn btn-sm" ng-click="excluirItem(item)"><i class="fa fa-times"></i></button>
 					</td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td class="text-right"><b>Total</td>
+					<td class="text-center"><b>{{valor_total | currency:'R$'}}</td>
+					<td></td>
 				</tr>
 
 			</table>

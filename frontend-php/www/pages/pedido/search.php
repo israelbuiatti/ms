@@ -35,7 +35,7 @@
 				<td width="100px">{{item.id}}</td>
 				<td width="150px">{{item.data}}</td>
 				<td>{{item.nome_razao}}</td>
-				<td width="200px">{{item.valor}}</td>
+				<td class="text-center" width="200px">{{item.valor | currency:'R$ '}}</td>
 				<td class="text-center" width="100px">
 					<button type="button" title="Editar" style="margin-right:5px" class="btn btn-sm" ng-click="preparaAlterar(item)"><i class="fa fa-edit"></i></button>
 					<button type="button" title="Excluir" style="margin-right:5px" class="btn btn-sm" ng-click="excluir(item)"><i class="fa fa-times"></i></button>

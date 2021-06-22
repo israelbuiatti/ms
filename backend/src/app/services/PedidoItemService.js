@@ -1,3 +1,4 @@
+import PedidoRepository from '../repository/PedidoRepository'
 import PedidoItemRepository from '../repository/PedidoItemRepository'
 import AppError from '../exception/AppError';
 import UTIL from '../utils/util';
@@ -7,6 +8,7 @@ class PedidoItemService {
 
     constructor() {
         this.repository = new PedidoItemRepository();
+        this.repositoryPedido = new PedidoRepository();
     }
 
     async findByPedido(id) {
@@ -20,11 +22,17 @@ class PedidoItemService {
 
         this.validarPedidoItem(pedidoItem);
 
+        let pedido = await this.repositoryPedido.findById(pedidoItem.id_pedido);
+        pedido.valor = pedidoItem.quantidade * pedidoItem.valor_unitario;
+        await this.repositoryPedido.update(pedido);
+        
         const result = await this.repository.insert(pedidoItem);
+
         return result;
     }
 
     async delete(id) {
+        await this.repository.findById(id);
         await this.repository.delete(id);
     }
 

@@ -17,8 +17,6 @@ class PedidoItemRepository extends BaseRepository {
 
     async insert(pedidoItem) {
 
-        console.log(pedidoItem);
-
         const result = await this.db()
             .returning('*')
             .insert(pedidoItem);

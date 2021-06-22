@@ -262,7 +262,7 @@ angular.module('admin').controller('PedidoCtrl', ["$scope", "$http", function ($
 
 	var contains = (a, obj) => {
 		for (var i = 0; i < a.length; i++) {
-			if (a[i]['produto'] == obj['produto']) {
+			if (a[i]['id_produto'] == obj['id_produto']) {
 				return true;
 			}
 		}
@@ -296,6 +296,7 @@ angular.module('admin').controller('PedidoCtrl', ["$scope", "$http", function ($
 					$scope.itens.push(response.data);
 					$scope.produto = {};
 					$scope.pItem = {};
+					calculaValorTotalPedido();
 				}, (error) => {
 					console.log('Ocorreu um erro!');
 				})
@@ -310,6 +311,15 @@ angular.module('admin').controller('PedidoCtrl', ["$scope", "$http", function ($
 
 	}
 
+	let calculaValorTotalPedido  = () => {
+		$scope.valor_total = 0.0;
+		
+		$scope.itens.forEach(item => {
+			console.log('item', item);
+			$scope.valor_total += item.quantidade * item.valor_unitario;
+		})
+	}
+
 	$scope.getListaPedidoItem = () => {
 
 		loadingOn();
@@ -317,6 +327,7 @@ angular.module('admin').controller('PedidoCtrl', ["$scope", "$http", function ($
 			.then(
 				(response) => {
 					$scope.itens = response.data;
+					calculaValorTotalPedido();
 				},
 				(error) => alert(error.data.message)
 			)
