@@ -18,14 +18,10 @@
 	<!-- Main content -->
 	<section class="content">
 
-
-		<div style="text-align:right">
-			<a class="btn btn-app" ng-click="preparaCadastrar()"><i class="fa fa-plus"></i> Novo </a>
-		</div>
-		
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Fornecedor</h3>
+				<button class="btn btn-success" ng-click="preparaCadastrar()" style="float:right"> <i class="fa fa-plus"></i> Novo </button>
 			</div>
 
 			<div ng-show="state == 'search'">

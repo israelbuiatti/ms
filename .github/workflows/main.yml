@@ -43,19 +43,14 @@ jobs:
       
       
 
-      - name: Deploy to Heroku
-        # You may pin to the exact commit or the version.
-        # uses: AkhileshNS/heroku-deploy@79ef2ae4ff9b897010907016b268fd0f88561820
-        uses: AkhileshNS/heroku-deploy@v3.12.12
-        with:
-          # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          # Email that you use with heroku
-          heroku_email: israelbuiatti@gmail.com
-          # The appname to use for deploying/updating
-          heroku_app_name: buiatti-ms-backend
-          usedocker: true
-          appdir: backend
+      # - name: Deploy to Heroku
+      #   uses: AkhileshNS/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_email: israelbuiatti@gmail.com
+      #     heroku_app_name: buiatti-ms-backend
+      #     usedocker: true
+      #     appdir: backend
           
           
   # This workflow contains a single job called "build"
@@ -86,19 +81,14 @@ jobs:
             israelbuiatti/ms-frontend:${{github.run_number}}     
             
 
-      - name: Deploy to Heroku
-        # You may pin to the exact commit or the version.
-        # uses: AkhileshNS/heroku-deploy@79ef2ae4ff9b897010907016b268fd0f88561820
-        uses: AkhileshNS/heroku-deploy@v3.12.12
-        with:
-          # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          # Email that you use with heroku
-          heroku_email: israelbuiatti@gmail.com
-          # The appname to use for deploying/updating
-          heroku_app_name: buiatti-ms-frontend-php
-          usedocker: true
-          appdir: frontend-php         
+      # - name: Deploy to Heroku
+      #   uses: AkhileshNS/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_email: israelbuiatti@gmail.com
+      #     heroku_app_name: buiatti-ms-frontend-php
+      #     usedocker: true
+      #     appdir: frontend-php         
 
 
   CONSULTA-CEP:
@@ -125,14 +115,14 @@ jobs:
             israelbuiatti/consulta-cep:${{github.run_number}}         
 
 
-      - name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_email: israelbuiatti@gmail.com
-          heroku_app_name: buiatti-ms-consulta-cep
-          usedocker: true
-          appdir: consulta-cep          
+      # - name: Deploy to Heroku
+      #   uses: AkhileshNS/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_email: israelbuiatti@gmail.com
+      #     heroku_app_name: buiatti-ms-consulta-cep
+      #     usedocker: true
+      #     appdir: consulta-cep          
 
 
   # ACL:

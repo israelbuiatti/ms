@@ -53,7 +53,7 @@
 			</div>
 			<div class="col-sm-4">
 				<label>Telemarketing</label>
-				<select class="form-control" ng-options="item.id as item.nome for item in listaTelemarketing" ng-model="pedido.id_vendedor">
+				<select class="form-control" ng-options="item.id as item.nome for item in listaTelemarketing" ng-model="pedido.id_vendedor_tel">
 					<option value=""> - Selecione - </option>
 				</select>
 			</div>

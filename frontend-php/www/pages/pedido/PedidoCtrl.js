@@ -105,6 +105,7 @@ angular.module('admin').controller('PedidoCtrl', ["$scope", "$http", function ($
 				
 				alert("Pedido cadastrado com sucesso. Número " + response.data.id);
 				$scope.state = "update";
+				$scope.pedido.id = response.data.id;
 			
 			}, (error) => {
 				console.log('Ocorreu um erro!');
