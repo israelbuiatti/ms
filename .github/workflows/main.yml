@@ -31,26 +31,26 @@ jobs:
           username: ${{secrets.DOCKERHUB_USER}}
           password: ${{secrets.DOCKERHUB_PASSWORD}}
 
-      # - name: Build and push Docker images
-      #   uses: docker/build-push-action@v2.4.0
-      #   with:
-      #     context: ./backend
-      #     file: ./backend/Dockerfile
-      #     push: true
-      #     tags: |
-      #       israelbuiatti/ms-backend:latest
-      #       israelbuiatti/ms-backend:${{github.run_number}}      
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2.4.0
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: |
+            israelbuiatti/ms-backend:latest
+            israelbuiatti/ms-backend:${{github.run_number}}      
       
       
 
-      - name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_email: israelbuiatti@gmail.com
-          heroku_app_name: buiatti-ms-backend
-          usedocker: true
-          appdir: backend
+      # - name: Deploy to Heroku
+      #   uses: AkhileshNS/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_email: israelbuiatti@gmail.com
+      #     heroku_app_name: buiatti-ms-backend
+      #     usedocker: true
+      #     appdir: backend
           
           
   # This workflow contains a single job called "build"
@@ -70,25 +70,25 @@ jobs:
           username: ${{secrets.DOCKERHUB_USER}}
           password: ${{secrets.DOCKERHUB_PASSWORD}}
 
-      # - name: Build and push Docker images
-      #   uses: docker/build-push-action@v2.4.0
-      #   with:
-      #     context: ./frontend-php
-      #     file: ./frontend-php/Dockerfile
-      #     push: true
-      #     tags: |
-      #       israelbuiatti/ms-frontend:latest
-      #       israelbuiatti/ms-frontend:${{github.run_number}}     
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2.4.0
+        with:
+          context: ./frontend-php
+          file: ./frontend-php/Dockerfile
+          push: true
+          tags: |
+            israelbuiatti/ms-frontend:latest
+            israelbuiatti/ms-frontend:${{github.run_number}}     
             
 
-      - name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_email: israelbuiatti@gmail.com
-          heroku_app_name: buiatti-ms-frontend-php
-          usedocker: true
-          appdir: frontend-php         
+      # - name: Deploy to Heroku
+      #   uses: AkhileshNS/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_email: israelbuiatti@gmail.com
+      #     heroku_app_name: buiatti-ms-frontend-php
+      #     usedocker: true
+      #     appdir: frontend-php         
 
 
   CONSULTA-CEP:
@@ -104,25 +104,25 @@ jobs:
           username: ${{secrets.DOCKERHUB_USER}}
           password: ${{secrets.DOCKERHUB_PASSWORD}}
 
-      # - name: Build and push Docker images
-      #   uses: docker/build-push-action@v2.4.0
-      #   with:
-      #     context: ./consulta-cep
-      #     file: ./consulta-cep/Dockerfile
-      #     push: true
-      #     tags: |
-      #       israelbuiatti/consulta-cep:latest
-      #       israelbuiatti/consulta-cep:${{github.run_number}}         
-
-
-      - name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.12.12
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2.4.0
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_email: israelbuiatti@gmail.com
-          heroku_app_name: buiatti-ms-consulta-cep
-          usedocker: true
-          appdir: consulta-cep          
+          context: ./consulta-cep
+          file: ./consulta-cep/Dockerfile
+          push: true
+          tags: |
+            israelbuiatti/consulta-cep:latest
+            israelbuiatti/consulta-cep:${{github.run_number}}         
+
+
+      # - name: Deploy to Heroku
+      #   uses: AkhileshNS/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_email: israelbuiatti@gmail.com
+      #     heroku_app_name: buiatti-ms-consulta-cep
+      #     usedocker: true
+      #     appdir: consulta-cep          
 
 
   # ACL:

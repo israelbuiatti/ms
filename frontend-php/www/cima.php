@@ -35,13 +35,17 @@ session_start();
 	<![endif]-->
 
 
-	<base href="https://buiatti-ms-frontend-php.herokuapp.com/">
+	<!-- <base href="https://buiatti-ms-frontend-php.herokuapp.com/"> -->
+	<base href="https://buiatte.com.br:88/">
 	<!-- <base href="http://localhost:88/"> -->
 
 	<script>
-		var URL_API = "https://buiatti-ms-backend.herokuapp.com/"
-		var URL_API_CONSULTA_CEP = "https://buiatti-ms-consulta-cep.herokuapp.com/"
+		// var URL_API = "https://buiatti-ms-backend.herokuapp.com/"
+		var URL_API = "http://buiatte.com.br:3333/"
 		// var URL_API = "http://localhost:3333/"
+
+		// var URL_API_CONSULTA_CEP = "https://buiatti-ms-consulta-cep.herokuapp.com/"
+		var URL_API_CONSULTA_CEP = "https://buiatte.com.br:3334"
 		// var URL_API_CONSULTA_CEP = "http://localhost:3334/"
 	</script>
 
@@ -62,9 +66,13 @@ session_start();
 	<script src="dist/js/demo.js"></script>
 
 	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular/angular-locale_pt-br.js"></script>
 	<script src="scripts/app.js"></script>
 	<script src="scripts/jquery.maskMoney.min.js"></script>
 	<script src="scripts/controllers/teste.js"></script>
+
+	<script src="scripts/moment.min.js"></script>
+	<script src="scripts/moment-with-locales.min.js"></script>
 
 	<script src='dist/js/textAngular-rangy.min.js'></script>
 	<script src='dist/js/textAngular-sanitize.min.js'></script>
@@ -84,10 +92,7 @@ session_start();
 
 	<script type="text/javascript">
 		$(function() {
-			$('#datetimepicker4').datetimepicker({
-				format: 'DD/MM/YYYY'
-			});
-			$('#datetimepicker5').datetimepicker({
+			$('.date').datetimepicker({
 				format: 'DD/MM/YYYY'
 			});
 
@@ -96,7 +101,17 @@ session_start();
 				thousands: ".",
 				allowZero: true
 			});
+
+			$(".moeda4").maskMoney({
+				precision: 4,
+				decimal: ",",
+				thousands: ".",
+				allowZero: true
+			});
+
+
 			$('[data-mask]').inputmask()
+
 		});
 	</script>
 
