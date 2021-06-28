@@ -27,3 +27,5 @@ RUN chown -R www-data:www-data /var/www/html && a2enmod rewrite
 COPY ./www /var/www/html
 
 #CMD sed -i "s/80/$PORT/g" /etc/apache2/sites-enabled/000-default.conf /etc/apache2/ports.conf && docker-php-entrypoint apache2-foreground
+
+CMD ["apache2", "-D", "FOREGROUND"]
