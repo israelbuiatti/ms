@@ -13,6 +13,16 @@ export default class ProdutoController {
 		return res.json(results);
 	}
 
+	async busca(req, res) {
+
+		const produto = Produto.create(req.body);
+
+		const result = await this.produtoService.busca(produto);
+
+		return res.json(result);
+
+	}
+
 	async get(req, res) {
 		const { id } = req.params;
 		const result = await this.produtoService.findById(id);

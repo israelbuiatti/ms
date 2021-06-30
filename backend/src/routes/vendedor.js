@@ -10,6 +10,7 @@ routes.use(ensureAuthenticated);
 routes.get('/', (req, res) => vendedorController.list(req, res)); // POSSUI ESSAS DUAS OPÇÕES PRA USAR O CONTEXTO THIS
 routes.get('/:id', vendedorController.get.bind(vendedorController));
 routes.post('/', vendedorController.create.bind(vendedorController));
+routes.post('/busca', vendedorController.busca.bind(vendedorController));
 routes.put('/:id', vendedorController.update.bind(vendedorController));
 routes.delete('/:id', vendedorController.delete.bind(vendedorController));
 

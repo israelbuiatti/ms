@@ -13,6 +13,16 @@ export default class ClienteController {
 		return res.json(results);
 	}
 
+	async busca(req, res) {
+
+		const cliente = Cliente.create(req.body);
+
+		const result = await this.clienteService.busca(cliente);
+
+		return res.json(result);
+
+	}
+
 	async get(req, res) {
 		const { id } = req.params;
 		const result = await this.clienteService.findById(id);
@@ -43,6 +53,8 @@ export default class ClienteController {
 		await this.clienteService.delete(id);
 		return res.status(204).json();
 	}
+
+
 
 
 }

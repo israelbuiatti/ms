@@ -1,5 +1,7 @@
 import FornecedorRepository from '../repository/FornecedorRepository'
 import AppError from '../exception/AppError';
+import UTIL from '../utils/util';
+
 
 class FornecedorService {
 
@@ -15,6 +17,10 @@ class FornecedorService {
     async findAll() {
         const results = await this.repository.findAll();
         return results;
+    }
+
+    async busca(fornecedor) {
+        return await this.repository.busca(fornecedor);
     }
 
     async insert(fornecedor) {
@@ -43,8 +49,12 @@ class FornecedorService {
 
     validar(fornecedor) {
         if (!fornecedor.nome_razao) throw new AppError("Campo Razão Social obrigatório!");
-    }
 
+        fornecedor.comissao_repr = UTIL.moedaToUS(fornecedor.comissao_repr);
+        fornecedor.comissao_vend = UTIL.moedaToUS(fornecedor.comissao_vend);
+        fornecedor.comissao_tel = UTIL.moedaToUS(fornecedor.comissao_tel);
+
+    }
 
 }
 

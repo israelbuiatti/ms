@@ -17,6 +17,10 @@ class ClienteService {
         return results;
     }
 
+    async busca(cliente) {
+        return await this.repository.busca(cliente);
+    }
+
     async insert(cliente) {
 
         this.validar(cliente);
