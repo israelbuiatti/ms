@@ -34,7 +34,6 @@ session_start();
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-
 	<!-- <base href="https://buiatti-ms-frontend-php.herokuapp.com/"> -->
 	<base href="https://buiatte.com.br:88/">
 	<!-- <base href="http://localhost:88/"> -->
